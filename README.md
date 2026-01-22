@@ -1,25 +1,34 @@
-### class HistoryBlock
-  Используется в качестве блоков для истории в кошельке.
-  HistoryBlock(int target_id, float value, String comment, String timestamp)
-    > target_id - ID кошелька, кому направлялся перевод
-    > value - Сумма перевода
-    > comment - Комментарий к переводу
-    > timestamp - Время перевода
-  public String ToString() -> Возвращает все данные о блоке в формате строки
+### `class HistoryBlock`
+Используется в качестве блоков для истории в кошельке.
 
-### class Wallet 
-  Класс для кошельков.
-  Поля (все приватные): money, id, History
-  Публичные методы:
-    GetID() -> Получение ID кошелька
-    GetMoney() -> Получение средств кошелька.
-    ShowHistory() -> Вывод всей истории кошелька (Список Wallet.History)
-    SpendMoney() -> Трата средств с кошелька
-  Приватные методы:
-    SetMoney(float value) -> Установить значение поля money
-    GetHistory() -> Получить "сырые" данные истории трат
-      > Возвращает ArrayList<HistoryBlock>
-    AddHistoryBlock(HistoryBlock block) -> Добавить новую запись в историю
-    SubMoney(float value) -> Вычесть деньги
-      > Имеет 2 кода ошибки ( 1 - Недопустимое значение, 2 - Недостаточно средств )
-    
+**Конструктор:** 
+`HistoryBlock(int target_id, float value, String comment, String timestamp)`
+
+**Параметры:**
+- `target_id` — ID кошелька, которому направлялся перевод.
+- `value` — сумма перевода.
+- `comment` — комментарий к переводу.
+- `timestamp` — время перевода.
+
+**Методы:**
+- `public String ToString()` — возвращает все данные о блоке в формате строки.
+
+---
+
+### `class Wallet`
+Класс для кошельков.
+
+**Приватные поля:** `money`, `id`, `History`.
+
+**Публичные методы:**
+- `GetID()` — получение ID кошелька.
+- `GetMoney()` — получение средств кошелька.
+- `ShowHistory()` — вывод всей истории кошелька.
+- `SpendMoney()` — трата средств.
+
+**Приватные методы:**
+- `SetMoney(float value)` — установить значение поля `money`.
+- `GetHistory()` — получить данные истории (возвращает `ArrayList`).
+- `AddHistoryBlock(HistoryBlock block)` — добавить новую запись в историю.
+- `SubMoney(float value)` — вычесть деньги.
+  - **Ошибки:** `1` (недопустимое значение), `2` (недостаточно средств).
